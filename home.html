@@ -1,4 +1,3 @@
-<!-- home.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,24 +9,21 @@
 <p id="welcome">Loading...</p>
 
 <script>
-// Check if user is logged in by looking for a token in localStorage
 const token = localStorage.getItem("github_token");
 
 if (!token) {
-    // Not logged in → redirect to main page
     window.location.href = "/";
 } else {
-    // Logged in → fetch user info
     fetch("https://api.github.com/user", {
         headers: { Authorization: `token ${token}` }
     })
     .then(res => res.json())
     .then(data => {
-        document.getElementById("welcome").innerText = `Hello, ${data.login}!`;
+        document.getElementById("welcome").innerText =
+            `Hello, ${data.login}! You can now view the repo.`;
     })
     .catch(err => {
         console.error(err);
-        // If token invalid → redirect
         window.location.href = "/";
     });
 }
