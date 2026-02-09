@@ -1,1 +1,1 @@
-go to (https://sifprogramer.gihub.io/WL/script.js)
+go to (https://seifprogramer.gihub.io/WL/script.js)
